@@ -766,14 +766,6 @@ void gamePlay::diffCalc() {
         }
     }
     // -------
-
-    for (int i = 0; i < 12; i++){
-        for (int j = 0; j < 6; j++){
-        if (j == 0) printf("[%f, ", favorite[i][j]);
-        else if (j == 5) printf("%f] \n", favorite[i][j]);
-        else printf("%f, ", favorite[i][j]);
-        }
-    } printf("Difference ^ ---- \n\n"); //<-- Used for debug too
 }
 
 void gamePlay::minMaxMultiply () {
@@ -790,33 +782,21 @@ void gamePlay::minMaxMultiply () {
         // so that is not the territory that has the least amount of soldiers. If however it is greater than
         // 0, it means it can be counted as the territory that has the least.
     }
-    /*printf("Minimum index is: %d || The soldier number is: %d \n", minSolIndexPC, solNumTerr[minSolIndexPC]);
-    for (int i = 0; i < 12; i++){
-        printf("[%d, %d] . ", pcTerrSort[i][0], pcTerrSort[i][1]);
-    }*/ //<- Used to debug
     //------
     // Finder for User's indexes
     for (int i = 0; i < 12; i++){
         if (userTerrSort[i][0] > 0) {minSolIndexUser = userTerrSort[i][1]; break;}
     }
-    /*
-    printf("Minimum index is: %d || The soldier number is: %d \n", minSolIndexUser, solNumTerr[minSolIndexUser]);
-    for (int i = 0; i < 12; i++){
-        printf("[%d, %d] . ", userTerrSort[i][0], userTerrSort[i][1]);
-    }*/ //<- Used to debug
-    //------
+   
     
-    // Multiplying by highest number of soldiers of AI
-    //printf("Min index: %d || Max index: %d \n", minSolIndexPC, maxSolIndexPC); // DEB DEL
     float xMulti;
     for (int k = 11; k >= 0; k--){
         if (pcTerrSort[k][0] == 0) {
         break;
         }
         xMulti = reLUWithSatur((float)pcTerrSort[k][0], solNumTerr[minSolIndexPC], solNumTerr[maxSolIndexPC], 10, false);
-        //printf("xMulti is %f at k: %d \n", xMulti, k); //DEBUG DELETE (DEB DEL)
+        
         for (int m = 0; m < 6; m++){
-        //printf("Multiplying territory index %d \n", pcTerrSort[k][1]); // DEB DEL
             favorite[pcTerrSort[k][1]][m] *= xMulti;
         }
     }
@@ -828,7 +808,6 @@ void gamePlay::minMaxMultiply () {
         break;
         }
         inRELU = reLUWithSatur((float)userTerrSort[k][0], solNumTerr[minSolIndexUser], solNumTerr[maxSolIndexUser], 10, true);
-        // DEB DEL printf("I'm placing inRELU: %f at userTerrSort[%d][1] \n", inRELU, k);
         reLUUser[userTerrSort[k][1]] = inRELU; 
     }
 
@@ -939,10 +918,6 @@ void gamePlay::testArray () {
         }
     }
 
-   /* DEB DEL for (int i = 0; i < 12; i++){
-        if (i == 0) printf("[%f, ", reLUUser[i]);
-        else if (i == 5) printf("%f] \n", reLUUser[i]);
-        else printf("%f, ", reLUUser[i]);
-    } */
+  
 }
 
