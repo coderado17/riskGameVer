@@ -47,47 +47,6 @@ int WEU[42][2] = {
 };
 mapDisplay::mapDisplay(){};
 
-/*void mapDisplay::nextTerr(N5110 screen, int country) {
-
-screen.init(LPH7366_1);
-screen.setContrast(0.55);
-screen.setBrightness(0.5);
-switch (country) {
-
-    case 0:
-    screen.drawSprite(indexes[0][0], indexes[0][1], indexes[0][2], indexes[0][3], (int*) AFG);
-    screen.refresh();
-
-
-
-}
-
-}*/
-
-
-/*void mapDisplay::copyArray(int arrPaste[48][84], int& curr, int caseMv) {
-    
-    
-
-}
-void mapDisplay::terrFinder (int outline[48][84], int countryIndex) {
-    switch(countryIndex){
-        case 0:
-            mapDisplay::copyTerr(outline, AFG, 0);
-    }
-}*/
-/*
-void mapDisplay::copyTerr (int outline[48][84], int terr[], int countryIndex){
-
-    for (int i = idx[countryIndex][0]; i < idx[countryIndex][2]; i++){
-        for (int j = idx[countryIndex][1]; j < idx[countryIndex][3]; j++){
-            outline[i][j] = terr[i][j];
-        }
-    }
-
-}
-*/
-
 int* mapDisplay::addressRet(int countryIndex){
     switch(countryIndex){
         case 0:
@@ -145,52 +104,3 @@ int mapDisplay::sizeOfTerr (int* curr) {
     return *(idxSize + countryIndex);
 
 }
-
-/*void mapDisplay::test(N5110& lcd) {
-    int n = 0;
-    lcd.clear();
-    lcd.draw(429, *norAmerica);
-    lcd.draw(sizeOfTerr(&n), *ALS);
-    lcd.refresh();   
-    ThisThread::sleep_for(2000ms);
-    n++;
-    lcd.draw(sizeOfTerr(&n), *NWT);
-    lcd.refresh();
-    ThisThread::sleep_for(2000ms);
-    n++;
-    lcd.draw(sizeOfTerr(&n), *ALB);
-    lcd.refresh();
-    ThisThread::sleep_for(2000ms);
-    n++;
-    lcd.draw(sizeOfTerr(&n), *ONT);
-    lcd.refresh();
-    ThisThread::sleep_for(2000ms);
-    n++;
-    lcd.draw(sizeOfTerr(&n), *WUS);
-    lcd.refresh();
-    ThisThread::sleep_for(2000ms);
-    n++;
-    lcd.draw(sizeOfTerr(&n), *EUS);
-    lcd.refresh();
-    ThisThread::sleep_for(2000ms);
-    n = n + 2;
-    lcd.draw(sizeOfTerr(&n), *QBC);
-    lcd.refresh();
-    ThisThread::sleep_for(2000ms);
-    n++;
-    lcd.draw(sizeOfTerr(&n), *GRL);
-    lcd.refresh();
-    ThisThread::sleep_for(2000ms);
-    n++;
-    lcd.draw(sizeOfTerr(&n), *GRB);
-    lcd.refresh();
-    ThisThread::sleep_for(2000ms);
-    n++;
-    lcd.draw(sizeOfTerr(&n), *ICL);
-    lcd.refresh();
-    ThisThread::sleep_for(2000ms);
-    n++;
-    lcd.draw(sizeOfTerr(&n), *WEU);
-    lcd.refresh();
-    ThisThread::sleep_for(2000ms);
-}*/
